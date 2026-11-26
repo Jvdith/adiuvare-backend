@@ -6,13 +6,13 @@ import com.adiuvare.model.Voluntario;
 import com.adiuvare.repository.EventoRepository;
 import com.adiuvare.repository.InscripcionRepository;
 import com.adiuvare.repository.UsuarioRepository;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/inscripciones")
@@ -55,5 +55,31 @@ public class InscripcionController {
     public ResponseEntity<?> eliminar(@PathVariable Integer id) {
         inscripcionRepository.deleteById(id);
         return ResponseEntity.ok(Map.of("ok", true));
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<?> actualizarInscripcion(@PathVariable Integer id, @RequestBody Map<String, String> body) {
+        Optional<Inscripcion> inscripcionOpt = inscripcionRepository.findById(id);
+
+        if (inscripcionOpt.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+
+        Inscripcion inscripcion = inscripcionOpt.get();
+
+        String nuevoNombre = body.get("nombre");
+        String nuevoCorreo = body.get("correoContacto");
+
+        if (nuevoNombre != null && !nuevoNombre.trim().isEmpty()) {
+            inscripcion.setNombre(nuevoNombre.trim());
+        }
+
+        if (nuevoCorreo != null && !nuevoCorreo.trim().isEmpty()) {
+            inscripcion.setCorreoContacto(nuevoCorreo.trim());
+        }
+
+        inscripcionRepository.save(inscripcion);
+
+        return ResponseEntity.ok(Map.of("mensaje", "Inscripción actualizada", "inscripcion", inscripcion));
     }
 }
