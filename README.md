@@ -18,16 +18,6 @@ El backend gestiona autenticación con JWT, registro de usuarios, CRUD de evento
 
 ![Diagrama de casos de uso](docs/cu.png)
 
-| # | Caso de uso | Actor |
-| :---: | :--- | :--- |
-| 1 | Registrarse | Usuario |
-| 2 | Iniciar sesión | Usuario |
-| 3 | Ver / buscar / filtrar eventos | Voluntario y Asociación |
-| 4 | Inscribirse en un evento | Voluntario |
-| 5 | Cancelar inscripción | Voluntario |
-| 6 | Añadir a favoritos | Voluntario |
-| 7 | Crear / editar / eliminar evento | Asociación |
-
 ---
 
 ## 3. Modelo de datos

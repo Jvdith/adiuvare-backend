@@ -35,8 +35,7 @@ public class Usuario {
     @Column(nullable = false)
     private String contrasena;
 
-    @Size(max = 500)
-    @Column(name = "foto_perfil", length = 500)
+    @Column(name = "foto_perfil", columnDefinition = "LONGTEXT")
     private String fotoPerfil;
 
     @NotBlank(message = "El tipo de usuario es obligatorio")
