@@ -1,6 +1,3 @@
-Pegar en intellij cuando tenga la documentación hecha y hago link a ellas en el readme (llamar igual los documentos):
-
-
 # Adiuvare — Backend
 
 API REST del proyecto **Adiuvare**, una app que conecta asociaciones con voluntarios para gestionar eventos solidarios. Este repo contiene el backend (Spring Boot + JPA + MariaDB). El frontend (React) y la app Android (Kotlin) están en repos separados y consumen esta misma API.
