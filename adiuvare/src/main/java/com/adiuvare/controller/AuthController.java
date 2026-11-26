@@ -31,7 +31,7 @@ public class AuthController {
     @PostMapping("/register")
     public ResponseEntity<?> register(@Valid @RequestBody Usuario usuario) {
         if (authService.existeCorreo(usuario.getCorreo())) {
-            return ResponseEntity.badRequest().body(Map.of("error", "El correo ya está registrado"));
+            return ResponseEntity.badRequest().body(Map.of("error", "Credenciales Incorrectas"));
         }
 
         Usuario nuevoUsuario = authService.registrarUsuario(usuario);
