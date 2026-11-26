@@ -16,7 +16,7 @@ El backend gestiona autenticación con JWT, registro de usuarios, CRUD de evento
 
 ## 2. Casos de uso
 
-![Diagrama de casos de uso](docs/cu.png)
+![Diagrama de casos de uso](../docs/cu.png)
 
 | # | Caso de uso | Actor |
 | :---: | :--- | :--- |
@@ -33,17 +33,17 @@ El backend gestiona autenticación con JWT, registro de usuarios, CRUD de evento
 ## 3. Modelo de datos
 
 ### 3.1. Esquema E/R
-![E/R](docs/er.png)
+![E/R](../docs/er.png)
 
 La entidad `USUARIO` se especializa en `ASOCIACION` y `VOLUNTARIO`. Las asociaciones **crean** eventos (1:N) y los eventos se **clasifican** por categorías (1:N). Los voluntarios **se inscriben** y **guardan favoritos** en eventos (ambas N:M).
 
 ### 3.2. UML
-![UML](docs/uml.png)
+![UML](../docs/uml.png)
 
 Herencia con `Usuario` como clase base. Las relaciones N:M se convierten en clases asociativas (`Inscripcion`, `Favorito`).
 
 ### 3.3. Relacional
-![Relacional](docs/relacional.png)
+![Relacional](../docs/relacional.png)
 
 Estrategia **JOINED** para la herencia: `usuario` guarda los campos comunes y `asociacion`/`voluntario` solo el `id_usuario`.
 
@@ -115,7 +115,7 @@ mvn spring-boot:run
 
 Verifica: `curl http://localhost:8080/api/categorias` - devuelve JSON con categorías.
 
-> Guía detallada con capturas: [Manual de instalación](docs/manual-instalacion.pdf).
+> Guía detallada con capturas: [Manual de instalación](../docs/manual-instalacion.pdf).
 
 ---
 
@@ -134,8 +134,8 @@ Verifica: `curl http://localhost:8080/api/categorias` - devuelve JSON con catego
 
 ## 8. Manuales
 
-- [Manual de instalación](docs/manual-instalacion.pdf)
-- [Manual de usuario](docs/manual-usuario.pdf)
+- [Manual de instalación](../docs/manual-instalacion.pdf)
+- [Manual de usuario](../docs/manual-usuario.pdf)
 
 ---
 
